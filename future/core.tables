@@ -1,0 +1,319 @@
+CREATE TABLE `gene` (
+  `gene_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `biotype` varchar(40) NOT NULL,
+  `analysis_id` smallint(5) unsigned NOT NULL,
+  `seq_region_id` int(10) unsigned NOT NULL,
+  `seq_region_start` int(10) unsigned NOT NULL,
+  `seq_region_end` int(10) unsigned NOT NULL,
+  `seq_region_strand` tinyint(2) NOT NULL,
+  `display_xref_id` int(10) unsigned DEFAULT NULL,
+  `source` varchar(20) NOT NULL,
+  `status` enum('KNOWN','NOVEL','PUTATIVE','PREDICTED','KNOWN_BY_PROJECTION','UNKNOWN') DEFAULT NULL,
+  `description` text,
+  `is_current` tinyint(1) NOT NULL DEFAULT '1',
+  `canonical_transcript_id` int(10) unsigned NOT NULL,
+  `canonical_annotation` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`gene_id`),
+  KEY `seq_region_idx` (`seq_region_id`,`seq_region_start`),
+  KEY `xref_id_index` (`display_xref_id`),
+  KEY `analysis_idx` (`analysis_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=161022 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `gene_stable_id` (
+  `gene_id` int(10) unsigned NOT NULL,
+  `stable_id` varchar(128) NOT NULL,
+  `version` int(10) DEFAULT NULL,
+  `created_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
+  PRIMARY KEY (`gene_id`),
+  KEY `stable_id_idx` (`stable_id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `exon` (
+  `exon_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `seq_region_id` int(10) unsigned NOT NULL,
+  `seq_region_start` int(10) unsigned NOT NULL,
+  `seq_region_end` int(10) unsigned NOT NULL,
+  `seq_region_strand` tinyint(2) NOT NULL,
+  `phase` tinyint(2) NOT NULL,
+  `end_phase` tinyint(2) NOT NULL,
+  `is_current` tinyint(1) NOT NULL DEFAULT '1',
+  `is_constitutive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`exon_id`),
+  KEY `seq_region_idx` (`seq_region_id`,`seq_region_start`)
+) ENGINE=MyISAM AUTO_INCREMENT=1536937 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `exon_stable_id` (
+  `exon_id` int(10) unsigned NOT NULL,
+  `stable_id` varchar(128) NOT NULL,
+  `version` int(10) DEFAULT NULL,
+  `created_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
+  PRIMARY KEY (`exon_id`),
+  KEY `stable_id_idx` (`stable_id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `exon_transcript` (
+  `exon_id` int(10) unsigned NOT NULL,
+  `transcript_id` int(10) unsigned NOT NULL,
+  `rank` int(10) NOT NULL,
+  PRIMARY KEY (`exon_id`,`transcript_id`,`rank`),
+  KEY `transcript` (`transcript_id`),
+  KEY `exon` (`exon_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `transcript` (
+  `transcript_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `gene_id` int(10) unsigned DEFAULT NULL,
+  `analysis_id` smallint(5) unsigned NOT NULL,
+  `seq_region_id` int(10) unsigned NOT NULL,
+  `seq_region_start` int(10) unsigned NOT NULL,
+  `seq_region_end` int(10) unsigned NOT NULL,
+  `seq_region_strand` tinyint(2) NOT NULL,
+  `display_xref_id` int(10) unsigned DEFAULT NULL,
+  `biotype` varchar(40) NOT NULL,
+  `status` enum('KNOWN','NOVEL','PUTATIVE','PREDICTED','KNOWN_BY_PROJECTION','UNKNOWN') DEFAULT NULL,
+  `description` text,
+  `is_current` tinyint(1) NOT NULL DEFAULT '1',
+  `canonical_translation_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`transcript_id`),
+  UNIQUE KEY `canonical_translation_idx` (`canonical_translation_id`),
+  KEY `seq_region_idx` (`seq_region_id`,`seq_region_start`),
+  KEY `gene_index` (`gene_id`),
+  KEY `xref_id_index` (`display_xref_id`),
+  KEY `analysis_idx` (`analysis_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=415518 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `transcript_attrib` (
+  `transcript_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `attrib_type_id` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `value` text NOT NULL,
+  KEY `type_val_idx` (`attrib_type_id`,`value`(40)),
+  KEY `val_only_idx` (`value`(40)),
+  KEY `transcript_idx` (`transcript_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `transcript_stable_id` (
+  `transcript_id` int(10) unsigned NOT NULL,
+  `stable_id` varchar(128) NOT NULL,
+  `version` int(10) DEFAULT NULL,
+  `created_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
+  PRIMARY KEY (`transcript_id`),
+  KEY `stable_id_idx` (`stable_id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `transcript_supporting_feature` (
+  `transcript_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `feature_type` enum('dna_align_feature','protein_align_feature') DEFAULT NULL,
+  `feature_id` int(10) unsigned NOT NULL DEFAULT '0',
+  UNIQUE KEY `all_idx` (`transcript_id`,`feature_type`,`feature_id`),
+  KEY `feature_idx` (`feature_type`,`feature_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 MAX_ROWS=100000000 AVG_ROW_LENGTH=80;
+
+CREATE TABLE `translation` (
+  `translation_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `transcript_id` int(10) unsigned NOT NULL,
+  `seq_start` int(10) NOT NULL,
+  `start_exon_id` int(10) unsigned NOT NULL,
+  `seq_end` int(10) NOT NULL,
+  `end_exon_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`translation_id`),
+  KEY `transcript_idx` (`transcript_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=240416 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `translation_attrib` (
+  `translation_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `attrib_type_id` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `value` text NOT NULL,
+  KEY `type_val_idx` (`attrib_type_id`,`value`(40)),
+  KEY `val_only_idx` (`value`(40)),
+  KEY `translation_idx` (`translation_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `translation_stable_id` (
+  `translation_id` int(10) unsigned NOT NULL,
+  `stable_id` varchar(128) NOT NULL,
+  `version` int(10) DEFAULT NULL,
+  `created_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
+  PRIMARY KEY (`translation_id`),
+  KEY `stable_id_idx` (`stable_id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE `interpro` (
+  `interpro_ac` varchar(40) NOT NULL,
+  `id` varchar(40) NOT NULL,
+  UNIQUE KEY `accession_idx` (`interpro_ac`,`id`),
+  KEY `id_idx` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `karyotype` (
+  `karyotype_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `seq_region_id` int(10) unsigned NOT NULL,
+  `seq_region_start` int(10) NOT NULL,
+  `seq_region_end` int(10) NOT NULL,
+  `band` varchar(40) NOT NULL,
+  `stain` varchar(40) NOT NULL,
+  PRIMARY KEY (`karyotype_id`),
+  KEY `region_band_idx` (`seq_region_id`,`band`)
+) ENGINE=MyISAM AUTO_INCREMENT=863 DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `object_xref` (
+  `object_xref_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ensembl_id` int(10) unsigned NOT NULL,
+  `ensembl_object_type` enum('RawContig','Transcript','Gene','Translation') NOT NULL,
+  `xref_id` int(10) unsigned NOT NULL,
+  `linkage_annotation` varchar(255) DEFAULT NULL,
+  `analysis_id` smallint(5) unsigned DEFAULT NULL,
+  UNIQUE KEY `object_type_idx` (`ensembl_object_type`,`ensembl_id`,`xref_id`),
+  KEY `oxref_idx` (`object_xref_id`,`xref_id`,`ensembl_object_type`,`ensembl_id`),
+  KEY `xref_idx` (`xref_id`,`ensembl_object_type`),
+  KEY `analysis_idx` (`analysis_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=37174643 DEFAULT CHARSET=latin1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE `external_db` (
+  `external_db_id` smallint(5) unsigned NOT NULL,
+  `db_name` varchar(100) NOT NULL,
+  `db_release` varchar(255) DEFAULT NULL,
+  `status` enum('KNOWNXREF','KNOWN','XREF','PRED','ORTH','PSEUDO') NOT NULL,
+  `dbprimary_acc_linkable` tinyint(1) NOT NULL DEFAULT '1',
+  `display_label_linkable` tinyint(1) NOT NULL DEFAULT '0',
+  `priority` int(11) NOT NULL,
+  `db_display_name` varchar(255) DEFAULT NULL,
+  `type` enum('ARRAY','ALT_TRANS','ALT_GENE','MISC','LIT','PRIMARY_DB_SYNONYM','ENSEMBL') DEFAULT NULL,
+  `secondary_db_name` varchar(255) DEFAULT NULL,
+  `secondary_db_table` varchar(255) DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`external_db_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `external_synonym` (
+  `xref_id` int(10) unsigned NOT NULL,
+  `synonym` varchar(40) NOT NULL,
+  PRIMARY KEY (`xref_id`,`synonym`),
+  KEY `name_index` (`synonym`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `go_xref` (
+  `object_xref_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `linkage_type` enum('IC','IDA','IEA','IEP','IGI','IMP','IPI','ISS','NAS','ND','TAS','NR','RCA','EXP','ISO','ISA','ISM','IGC') DEFAULT NULL,
+  `source_xref_id` int(10) unsigned DEFAULT NULL,
+  UNIQUE KEY `object_source_type_idx` (`object_xref_id`,`source_xref_id`,`linkage_type`),
+  KEY `source_idx` (`source_xref_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `identity_xref` (
+  `object_xref_id` int(10) unsigned NOT NULL,
+  `xref_identity` int(5) DEFAULT NULL,
+  `ensembl_identity` int(5) DEFAULT NULL,
+  `xref_start` int(11) DEFAULT NULL,
+  `xref_end` int(11) DEFAULT NULL,
+  `ensembl_start` int(11) DEFAULT NULL,
+  `ensembl_end` int(11) DEFAULT NULL,
+  `cigar_line` text,
+  `score` double DEFAULT NULL,
+  `evalue` double DEFAULT NULL,
+  PRIMARY KEY (`object_xref_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `misc_attrib` (
+  `misc_feature_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `attrib_type_id` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `value` text NOT NULL,
+  KEY `type_val_idx` (`attrib_type_id`,`value`(40)),
+  KEY `val_only_idx` (`value`(40)),
+  KEY `misc_feature_idx` (`misc_feature_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `misc_feature` (
+  `misc_feature_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `seq_region_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `seq_region_start` int(10) unsigned NOT NULL DEFAULT '0',
+  `seq_region_end` int(10) unsigned NOT NULL DEFAULT '0',
+  `seq_region_strand` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`misc_feature_id`),
+  KEY `seq_region_idx` (`seq_region_id`,`seq_region_start`)
+) ENGINE=MyISAM AUTO_INCREMENT=92564 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `misc_feature_misc_set` (
+  `misc_feature_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `misc_set_id` smallint(5) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`misc_feature_id`,`misc_set_id`),
+  KEY `reverse_idx` (`misc_set_id`,`misc_feature_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `misc_set` (
+  `misc_set_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(25) NOT NULL DEFAULT '',
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `description` text NOT NULL,
+  `max_length` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`misc_set_id`),
+  UNIQUE KEY `code_idx` (`code`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `object_xref` (
+  `object_xref_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ensembl_id` int(10) unsigned NOT NULL,
+  `ensembl_object_type` enum('RawContig','Transcript','Gene','Translation') NOT NULL,
+  `xref_id` int(10) unsigned NOT NULL,
+  `linkage_annotation` varchar(255) DEFAULT NULL,
+  `analysis_id` smallint(5) unsigned DEFAULT NULL,
+  UNIQUE KEY `object_type_idx` (`ensembl_object_type`,`ensembl_id`,`xref_id`),
+  KEY `oxref_idx` (`object_xref_id`,`xref_id`,`ensembl_object_type`,`ensembl_id`),
+  KEY `xref_idx` (`xref_id`,`ensembl_object_type`),
+  KEY `analysis_idx` (`analysis_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=37174643 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `xref` (
+  `xref_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `external_db_id` smallint(5) unsigned NOT NULL,
+  `dbprimary_acc` varchar(40) NOT NULL,
+  `display_label` varchar(128) NOT NULL,
+  `version` varchar(10) NOT NULL DEFAULT '0',
+  `description` text,
+  `info_type` enum('PROJECTION','MISC','DEPENDENT','DIRECT','SEQUENCE_MATCH','INFERRED_PAIR','PROBE','UNMAPPED','COORDINATE_OVERLAP') DEFAULT NULL,
+  `info_text` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`xref_id`),
+  UNIQUE KEY `id_index` (`dbprimary_acc`,`external_db_id`,`info_type`,`info_text`),
+  KEY `display_index` (`display_label`),
+  KEY `info_type_idx` (`info_type`)
+) ENGINE=MyISAM AUTO_INCREMENT=4709421 DEFAULT CHARSET=latin1;
+

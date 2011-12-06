@@ -1,0 +1,37 @@
+select sr.name as chrm_name, length as chrm_length, cs.name as seq_type, version from seq_region sr join coord_system cs using (coord_system_id) where rank = 1 limit 10;
++-----------+-------------+------------+---------+
+| chrm_name | chrm_length | seq_type   | version |
++-----------+-------------+------------+---------+
+| 5         |   180915260 | chromosome | GRCh37  |
+| 19        |    59128983 | chromosome | GRCh37  |
+| 10        |   135534747 | chromosome | GRCh37  |
+| 4         |   191154276 | chromosome | GRCh37  |
+| 8         |   146364022 | chromosome | GRCh37  |
+| 20        |    63025520 | chromosome | GRCh37  |
+| 15        |   102531392 | chromosome | GRCh37  |
+| 14        |   107349540 | chromosome | GRCh37  |
+| 12        |   133851895 | chromosome | GRCh37  |
+| 9         |   141213431 | chromosome | GRCh37  |
++-----------+-------------+------------+---------+
+10 rows in set (0.01 sec)
+
+
+
+
+select seq_region_start, seq_region_end, band, stain, sr.name as chromosome, length as chrm_length, version from karyotype join seq_region sr using (seq_region_id) join coord_system using (coord_system_id) where rank = 1 limit 10
+    -> ;
++------------------+----------------+--------+--------+------------+-------------+---------+
+| seq_region_start | seq_region_end | band   | stain  | chromosome | chrm_length | version |
++------------------+----------------+--------+--------+------------+-------------+---------+
+|                1 |        2300000 | p36.33 | gneg   | 1          |   249250621 | GRCh37  |
+|          2300001 |        5400000 | p36.32 | gpos25 | 1          |   249250621 | GRCh37  |
+|          5400001 |        7200000 | p36.31 | gneg   | 1          |   249250621 | GRCh37  |
+|          7200001 |        9200000 | p36.23 | gpos25 | 1          |   249250621 | GRCh37  |
+|          9200001 |       12700000 | p36.22 | gneg   | 1          |   249250621 | GRCh37  |
+|         12700001 |       16200000 | p36.21 | gpos50 | 1          |   249250621 | GRCh37  |
+|         16200001 |       20400000 | p36.13 | gneg   | 1          |   249250621 | GRCh37  |
+|         20400001 |       23900000 | p36.12 | gpos25 | 1          |   249250621 | GRCh37  |
+|         23900001 |       28000000 | p36.11 | gneg   | 1          |   249250621 | GRCh37  |
+|         28000001 |       30200000 | p35.3  | gpos25 | 1          |   249250621 | GRCh37  |
++------------------+----------------+--------+--------+------------+-------------+---------+
+

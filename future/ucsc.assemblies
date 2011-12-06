@@ -1,0 +1,136 @@
+dm1	Drosophila melanogaster	2003-01 (BDGP R3/dm1)	1	7227
+equCab2	Equus caballus	2007-09 (Broad/equCab2)	1	9796
+oryLat2	Oryzias latipes	2005-10 (NIG/UT MEDAKA1/oryLat2)	1	8090
+sacCer1	Saccharomyces cerevisiae	2003-10 (SGD/sacCer1)	1	4932
+dp2	Drosophila pseudoobscura	2003-08 (Baylor freeze1/dp2)	1	7237
+cb1	Caenorhabditis briggsae	2002-07 (WormBase cb25.agp8/cb1)	1	6238
+hg16	Homo sapiens	2003-07 (NCBI34/hg16)	1	9606
+rn3	Rattus norvegicus	2003-06 (Baylor 3.1/rn3)	1	10116
+galGal3	Gallus gallus	2006-05 (WUGSC 2.1/galGal3)	1	9031
+droWil1	Drosophila willistoni	2006-02 (TIGR CAF1/droWil1)	0	7260
+danRer4	Danio rerio	2006-03 (Zv6/danRer4)	1	7955
+xenTro2	Xenopus tropicalis	2005-08 (JGI 4.1/xenTro2)	1	8364
+panTro2	Pan troglodytes	2006-03 (CGSC 2.1/panTro2)	1	9598
+mm8	Mus musculus	2006-02 (NCBI36/mm8)	1	10090
+monDom4	Monodelphis domestica	2006-01 (Broad/monDom4)	1	13616
+rn4	Rattus norvegicus	2004-11 (Baylor 3.4/rn4)	1	10116
+strPur1	Strongylocentrotus purpuratus	2005-04 (Baylor 1.1/strPur1)	1	7668
+fr1	Takifugu rubripes	2002-08 (JGI 3.0/fr1)	1	31033
+panTro1	Pan troglodytes	2003-11 (CGSC 1.1/panTro1)	1	9598
+galGal2	Gallus gallus	2004-02 (WUGSC 1.0/galGal2)	1	9031
+ce2	Caenorhabditis elegans	2004-03 (WS120/ce2)	1	6239
+rheMac1	Macaca mulatta	2005-01 (Baylor Mmul_0.1/rheMac1)	0	9544
+mm6	Mus musculus	2005-03 (NCBI34/mm6)	0	10090
+xenTro1	Xenopus tropicalis	2004-10 (JGI 3.0/xenTro1)	1	8364
+canFam1	Canis lupus familiaris	2004-07 (Broad/canFam1)	1	9615
+ci1	Ciona intestinalis	2002-12 (JGI 1.0/ci1)	1	7719
+mm5	Mus musculus	2004-05	0	10090
+hg17	Homo sapiens	2004-05 (NCBI35/hg17)	1	9606
+droYak1	Drosophila yakuba	2004-04 (WUGSC 1.0/droYak1)	1	7245
+danRer1	Danio rerio	2003-11 (Zv3/danRer1)	0	7955
+anoGam1	Anopheles gambiae	2003-02 (IAGEC MOZ2/anoGam1)	1	7165
+tetNig1	Tetraodon nigroviridis	2004-02 (Genoscope 7/tetNig1)	1	99883
+droMoj1	Drosophila mojavensis	2004-08 (Agencourt prelim/droMoj1)	1	7230
+apiMel2	Apis mellifera	2005-01 (Baylor 2.0/apiMel2)	1	7460
+droVir1	Drosophila virilis	2004-07 (Agencourt prelim/droVir1)	1	7244
+droAna1	Drosophila ananassae	2004-07 (TIGR/droAna1)	1	7217
+apiMel1	Apis mellifera	2004-07 (Baylor 1.2/apiMel1)	1	7460
+danRer2	Danio rerio	2004-06 (Zv4/danRer2)	0	7955
+monDom1	Monodelphis domestica	2004-10 (Broad prelim/monDom1)	1	13616
+dm2	Drosophila melanogaster	2004-04 (BDGP R4/dm2)	1	7227
+dp3	Drosophila pseudoobscura	2004-11 (FlyBase 1.03/dp3)	1	7237
+droSim1	Drosophila simulans	2005-04 (WUGSC mosaic 1.0/droSim1)	1	7240
+mm3	Mus musculus	2003-02	0	10090
+ci2	Ciona intestinalis	2005-03 (JGI 2.1/ci2)	1	7719
+droVir2	Drosophila virilis	2005-08 (Agencourt prelim/droVir2)	1	7244
+droMoj2	Drosophila mojavensis	2005-08 (Agencourt prelim/droMoj2)	1	7230
+droEre1	Drosophila erecta	2005-08 (Agencourt prelim/droEre1)	1	7220
+bosTau2	Bos taurus	2005-03 (Baylor 2.0/bosTau2)	1	9913
+droAna2	Drosophila ananassae	2005-08 (Agencourt prelim/droAna2)	1	7217
+droGri1	Drosophila grimshawi	2005-08 (Agencourt prelim/droGri1)	1	7222
+mm7	Mus musculus	2005-08 (NCBI35/mm7)	1	10090
+canFam2	Canis lupus familiaris	2005-05 (Broad/canFam2)	1	9615
+dasNov1	Dasypus novemcinctus	2005-05 (Broad/dasNov1)	0	9361
+loxAfr1	Loxodonta africana	2005-05 (Broad/loxAfr1)	0	9785
+monDom2	Monodelphis domestica	2005-06 (Broad V3 prelim/monDom2)	0	13616
+danRer3	Danio rerio	2005-05 (Zv5/danRer3)	1	7955
+oryCun1	Oryctolagus cuniculus	2005-05 (Broad/oryCun1)	0	9986
+echTel1	Echinops telfairi	2005-07 (Broad/echTel1)	0	9371
+droPer1	Drosophila persimilis	2005-10 (Broad/droPer1)	1	7234
+droYak2	Drosophila yakuba	2005-11 (WUGSC 7.1/droYak2)	1	7245
+droSec1	Drosophila sechellia	2005-10 (Broad/droSec1)	1	7238
+rheMac2	Macaca mulatta	2006-01 (MGSC Merged 1.0/rheMac2)	1	9544
+hg18	Homo sapiens	2006-03 (NCBI36/hg18)	1	9606
+dp4	Drosophila pseudoobscura	2006-02 (Baylor CAF1/dp4)	0	7237
+droEre2	Drosophila erecta	2006-02 (Agencourt CAF1/droEre2)	0	7220
+triCas1	Tribolium castaneum	2005-01 (Baylor 1.0/triCas1)	0	7070
+droVir3	Drosophila virilis	2006-02 (Agencourt CAF1/droVir3)	0	7244
+droAna3	Drosophila ananassae	2006-02 (Agencourt CAF1/droAna3)	0	7217
+droMoj3	Drosophila mojavensis	2006-02 (Agencourt CAF1/droMoj3)	0	7230
+droGri2	Drosophila grimshawi	2006-02 (Agencourt CAF1/droGri2)	0	7222
+triCas2	Tribolium castaneum	2005-09 (Baylor 2.0/triCas2)	0	7070
+felCat3	Felis catus	2006-03 (Broad/felCat3)	1	9685
+gasAcu1	Gasterosteus aculeatus	2006-02 (Broad/gasAcu1)	1	69293
+oryLat1	Oryzias latipes	2006-04 (NIG/UT MEDAKA1/oryLat1)	0	8090
+fr2	Takifugu rubripes	2004-10 (JGI 4.0/fr2)	1	31033
+equCab1	Equus caballus	2007-01 (Broad/equCab1)	1	9796
+anoCar1	Anolis carolinensis	2007-02 (Broad/anoCar1)	1	28377
+ornAna1	Ornithorhynchus anatinus	2007-03 (WUGSC 5.0.1/ornAna1)	1	9258
+caePb1	Caenorhabditis brenneri	2007-01 (WUGSC 4.0/caePb1)	1	135651
+priPac1	Pristionchus pacificus	2007-02 (WUGSC 5.0/priPac1)	1	54126
+ce4	Caenorhabditis elegans	2007-01 (WS170/ce4)	1	6239
+cb3	Caenorhabditis briggsae	2007-01 (WUGSC 1.0/cb3)	1	6238
+caeRem2	Caenorhabditis remanei	2006-03 (WUGSC 1.0/caeRem2)	1	31234
+dm3	Drosophila melanogaster	2006-04 (BDGP R5/dm3)	1	7227
+otoGar1	Otolemur garnettii	2006-12 (Broad/otoGar1)	0	30611
+tupBel1	Tupaia belangeri	2006-12 (Broad/tupBel1)	0	37347
+cavPor2	Cavia porcellus	2005-10 (Broad/cavPor2)	0	10141
+sorAra1	Sorex araneus	2006-06 (Broad/sorAra1)	0	42254
+eriEur1	Erinaceus europaeus	2006-06 (Broad/eriEur1)	0	9365
+bosTau3	Bos taurus	2006-08 (Baylor 3.1/bosTau3)	1	9913
+mm9	Mus musculus	2007-07 (NCBI37/mm9)	1	10090
+apiMel3	Apis mellifera	2005-05 (Baylor 3.0/apiMel3)	0	7460
+strPur2	Strongylocentrotus purpuratus	2006-09 (Baylor 2.1/strPur2)	1	7668
+danRer5	Danio rerio	2007-07 (Zv7/danRer5)	1	7955
+ponAbe2	Pongo pygmaeus abelii	2007-07 (WUGSC 2.0.2/ponAbe2)	1	9601
+calJac1	Callithrix jacchus	2007-06 (WUGSC 2.0.2/calJac1)	1	9483
+bosTau4	Bos taurus	2007-10 (Baylor 4.0/bosTau4)	1	9913
+cavPor3	Cavia porcellus	2008-02 (Broad/cavPor3)	1	10141
+braFlo1	Branchiostoma floridae	2006-03 (JGI 1.0/braFlo1)	1	7739
+petMar1	Petromyzon marinus	2007-03 (WUGSC 3.0/petMar1)	1	7757
+caeRem3	Caenorhabditis remanei	2007-05 (WUGSC 15.0.1/caeRem3)	1	31234
+caePb2	Caenorhabditis brenneri	2008-02 (WUGSC 6.0.1/caePb2)	1	135651
+caeJap1	Caenorhabditis japonica	2008-03 (WUGSC 3.0.2/caeJap1)	1	281687
+ce6	Caenorhabditis elegans	2008-05 (WS190/ce6)	1	6239
+taeGut1	Taeniopygia guttata	2008-07 (WUGSC 3.2.4/taeGut1)	1	59729
+gorGor1	Gorilla gorilla gorilla	2008-10 (Sanger 0.1/gorGor1)	0	9595
+tarSyr1	Tarsius syrichta	2008-08 (Broad/tarSyr1)	0	9478
+micMur1	Microcebus murinus	2003-06 (Broad/micMur1)	0	30608
+dipOrd1	Dipodomys ordii	2008-07 (Broad/dipOrd1)	0	10020
+speTri1	Spermophilus tridecemlineatus	2008-02 (Broad/speTri1)	0	43179
+ochPri2	Ochotona princeps	2008-07 (Broad/ochPri2)	0	9978
+vicPac1	Vicugna pacos	2008-07 (Broad/vicPac1)	0	30538
+turTru1	Tursiops truncatus	2008-02 (Broad/turTru1)	0	9739
+myoLuc1	Myotis lucifugus	2006-03 (Broad/myoLuc1)	0	59463
+pteVam1	Pteropus vampyrus	2008-07 (Broad/pteVam1)	0	132908
+loxAfr2	Loxodonta africana	2008-07 (Broad/loxAfr2)	0	9785
+proCap1	Procavia capensis	2008-07 (Broad/proCap1)	0	9813
+dasNov2	Dasypus novemcinctus	2008-07 (Broad/dasNov2)	0	9361
+choHof1	Choloepus hoffmanni	2008-07 (Broad/choHof1)	0	9358
+hg15	Homo sapiens	2003-04 (NCBI33/hg15)	0	9606
+bosTau1	Bos taurus	2004-09 (Baylor 1.0/bosTau1)	0	9913
+hg19	Homo sapiens	2009-02 (GRCh37/hg19)	1	9606
+macEug1	Macropus eugenii	2007-11 (Baylor 1.0/macEug1)	0	9315
+monDom5	Monodelphis domestica	2006-10 (Broad/monDom5)	1	13616
+sacCer2	Saccharomyces cerevisiae	2008-06 (SGD/sacCer2)	1	4932
+papHam1	Papio hamadryas	2008-11 (Baylor 1.0/papHam1)	0	9562
+danRer6	Danio rerio	2008-12 (Zv8/danRer6)	1	7955
+tetNig2	Tetraodon nigroviridis	2007-03 (Genoscope 8.0/tetNig2)	1	99883
+bosTauMd3	Bos Taurus	2009-08 (UMD 3.0/bosTauMd3)	0	9913
+loxAfr3	Loxodonta africana	2009-07 (Broad/loxAfr3)	1	9785
+aplCal1	Aplysia californica	2008-09 (Broad 2.0/aplCal1)	1	6500
+ailMel1	Ailuropoda melanoleuca	2009-12 (BGI-Shenzhen 1.0/ailMel1)	1	9646
+susScr2	Sus scrofa	2009-11 (SGSC Sscrofa9.2/susScr2)	1	9823
+oryCun2	Oryctolagus cuniculus	2009-04 (Broad/oryCun2)	1	9986
+calJac3	Callithrix jacchus	2009-03 (WUGSC 3.2/calJac3)	1	9483
+
